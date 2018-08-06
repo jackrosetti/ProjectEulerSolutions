@@ -1,4 +1,8 @@
+#Writing this library to make my life easier bc a lot of these problems require the same basic math functions
+#NOTE: Not all functions are written entirely by me. I will modify efficient methods to fit my needs
+
 import math
+
 
 def prime_nums(n):
     primes = []
@@ -44,3 +48,27 @@ def binomial(x, y):
         c = math.factorial(x - y)  # that appears to be useful to get the correct result
         div = a // (b * c)
         return (div)
+
+def num_to_word(n):
+    ONES = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+            "nineteen"]
+
+    TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    if(0 <= n < 20):
+        return ONES[n]
+    elif (20 <= n < 100):
+        return TENS[n // 10] + (ONES[n % 10] if (n % 10 != 0) else "")
+    elif(100 <= n < 1000):
+        return ONES[n // 100] + "hundred" + (("and" + num_to_word(n % 100)) if (n % 100 != 0) else "")
+    elif(1000 <= n < 1000000):
+        return num_to_word(n // 1000) + "thousand" + (num_to_word(n % 1000) if (n % 1000 != 0) else "")
+    else:
+        print("Don't know how to fix at this point ")
+
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
