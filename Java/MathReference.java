@@ -1,5 +1,5 @@
 import java.math.BigInteger;
-
+//NOTE: Not all methods are mine. Some come from various online resources. 
 final class MathReference {
 
     static boolean isPal(int n)
@@ -72,6 +72,5 @@ final class MathReference {
         BigInteger gcd = b1.gcd(b2);
         return gcd.intValue();
     }
-
 
 }
